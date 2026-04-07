@@ -10,20 +10,25 @@ export default function apoie() {
   const [feedback, setFeedback] = useState('');
 
   async function EnviarFeedback(e: React.FormEvent) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const data = {
-      nome,
-      feedback,
-    };
+  const data = { nome, feedback };
 
-    await fetch('/api/form', {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
+  const res = await fetch('/api/form', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' }, 
+    body: JSON.stringify(data),
+  });
 
-    alert('Enviado! Muito obrigado pelo seu apoio!');
+  if (!res.ok) {
+    alert('Erro ao enviar. Tente novamente.');
+    return;
   }
+
+  alert('Enviado! Muito obrigado pelo seu apoio!');
+  setNome('');
+  setFeedback('');
+}
 
   return (
     <div className={styles.Containerapoie}>

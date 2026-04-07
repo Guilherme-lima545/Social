@@ -1,53 +1,58 @@
 import { NextResponse } from 'next/server';
-import * as XLSX from 'xlsx';
-import fs from 'fs';
-import path from 'path';
-
-const dir = path.join(process.cwd(), 'data');
-const filePath = path.join(dir, 'feedbacks.xlsx');
+import { google } from 'googleapis';
 
 type FeedbackData = {
   nome: string;
   feedback: string;
 };
 
-function readData(): FeedbackData[] {
-  if (!fs.existsSync(filePath)) return [];
-
-  const buffer = fs.readFileSync(filePath);
-  const workbook = XLSX.read(buffer, { type: 'buffer' });
-
-  const sheetName = workbook.SheetNames[0];
-  const sheet = workbook.Sheets[sheetName];
-
-  return XLSX.utils.sheet_to_json<FeedbackData>(sheet);
-}
-
-function writeData(data: FeedbackData[]) {
-  const sheet = XLSX.utils.json_to_sheet(data);
-  const workbook = XLSX.utils.book_new();
-
-  XLSX.utils.book_append_sheet(workbook, sheet, 'Feedbacks');
-
-  const buffer = XLSX.write(workbook, {
-    type: 'buffer',
-    bookType: 'xlsx',
+async function getSheet() {
+  const auth = new google.auth.GoogleAuth({
+    credentials: {
+      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+    },
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  fs.writeFileSync(filePath, buffer);
+  return google.sheets({ version: 'v4', auth });
 }
 
 export async function POST(req: Request) {
-  const body: FeedbackData = await req.json();
+  let body: FeedbackData;
 
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: 'Body inválido' }, { status: 400 });
   }
 
-  const data = readData(); 
-  data.push(body);
+  if (!body.nome || !body.feedback) {
+    return NextResponse.json({ error: 'Campos obrigatórios' }, { status: 400 });
+  }
 
-  writeData(data); 
+  try {
+    const sheets = await getSheet();
+
+      const meta = await sheets.spreadsheets.get({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+    });
+
+    const sheetName = meta.data.sheets?.[0].properties?.title;
+    console.log('Nome da aba:', sheetName);
+
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: `'${sheetName}'!A:C`,
+      valueInputOption: 'USER_ENTERED',
+      requestBody: {
+        values: [[body.nome, body.feedback, new Date().toLocaleString('pt-BR')]],
+      },
+    });
+  } catch (err) {
+    console.error('Erro Google Sheets:', err);
+    return NextResponse.json({ error: 'Erro ao salvar' }, { status: 500 });
+  }
 
   return NextResponse.json({ success: true });
 }
