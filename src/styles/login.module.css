@@ -17,3 +17,19 @@
   padding: 1rem;
   margin-top: 10vh;
 }
+
+
+@media (max-width: 637px) {
+
+  .forms {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .login:before {
+    display: none;
+  }
+
+}

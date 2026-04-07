@@ -7,6 +7,7 @@ import { USER_GET } from '@/app/api/route';
 import Usemedia from '@/Hook/Usemedia';
 import { useEffect, useState } from 'react';
 import { Getcookies } from '@/actions/cookie';
+import { usePathname } from 'next/navigation';
 
 type User = {
   nome: string;
@@ -17,6 +18,7 @@ export default function Header({ children }: { children?: React.ReactNode }) {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [token, setToken] = useState('');
   const [user, setUser] = useState<User | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     async function getUser() {
@@ -28,7 +30,7 @@ export default function Header({ children }: { children?: React.ReactNode }) {
     }
 
     getUser();
-  }, []);
+  }, [pathname]);
 
   return (
     <div>

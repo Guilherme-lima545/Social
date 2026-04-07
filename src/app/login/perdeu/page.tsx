@@ -19,13 +19,20 @@ export default function Lostpassword() {
 
     if (!email) {
       e.preventDefault();
-      setError('Por favor insira seu Email');
+      setError('Por favor insira seu Email / Usuario');
       return;
     }
 
     
 
     const reset = await PASSWORD_LOST(email, `${process.env.NEXT_PUBLIC_APP_URL}/login/resetar`)
+
+
+    if (reset.data?.status === 401) {
+    setSucesso('')
+    setError('Usuario / Email não encontrado')
+    return
+  }
     
     if(reset) {
       setSucesso('Link enviado para o email')
@@ -58,7 +65,7 @@ export default function Lostpassword() {
         <p style={{color: 'green'}}>{sucesso} </p>
         {Error && <ErrorMessage error={Error} />}
         <Button> Enviar </Button>
-        <Button onClick={() => voltar}>
+         <Button type='button' onClick={() => voltar}>
           <Link href="/login"> Voltar </Link>
         </Button>
       </form>
