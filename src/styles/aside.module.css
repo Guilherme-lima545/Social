@@ -1,0 +1,119 @@
+.aside {
+  position: sticky;
+  right: 20px;
+  margin-top: 50px;
+  background: linear-gradient(90deg, #003A4A, #2A003F);
+  border-radius: 6px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  width: 260px;
+  z-index: 100;
+}
+
+.title {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.status {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin: 0 0 0.5rem 0;
+}
+
+.error {
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.empty {
+  color: #cbd5e1;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.25rem;
+  border-radius: 4px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #17006f 0 0 0 1px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.initial {
+  font-weight: 600;
+  color: #333;
+}
+
+.name {
+  font-size: 0.95rem;
+}
+
+.statusWrap {
+  display: flex;
+  align-items: center;
+}
+
+.dotOnline,
+.dotOffline {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotOnline {
+  background: #2ecc71;
+}
+
+.dotOffline {
+  background: #dfe6ea;
+}
+
+.online {
+  font-size: 10px;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+
+
+@media (max-width: 517px) {
+  .aside {
+    width: 100%;
+    margin-top: 0;
+  }
+}

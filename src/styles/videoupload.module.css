@@ -1,0 +1,41 @@
+.videoPost {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.preview {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 1215px) {
+  .videoPost {
+  display: flex;
+  flex-direction: column;
+}
+
+}
+
+
+@media (max-width: 391px) {
+  .video {
+    width: 70%;
+  }
+
+  .preview {
+    width: 100%;
+  }
+}

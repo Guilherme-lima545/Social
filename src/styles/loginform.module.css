@@ -1,0 +1,77 @@
+.form {
+  margin-bottom: 2rem;
+}
+
+.perdeu {
+  display: inline-block;
+  color: #666;
+  padding: 0.5rem 0;
+  line-height: 1;
+}
+
+.perdeu::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  display: block;
+}
+
+.cadastro {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.cadastro p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 2rem;
+}
+
+.subtitle::after {
+  content: '';
+  display: block;
+  background: #ddd;
+  height: .5rem;
+  width: 3rem;
+  border-radius: 0.2rem;
+}
+
+
+.containerinput {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.mostrarsenha {
+  display: none;
+  position: absolute;
+  right: 120px;
+  top: 39%;
+  transform: translateX(-560%);
+  cursor: pointer;
+}
+
+.mostrarsenhalabel {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  top: 78%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: url('../../public/Assests/visualizacao-black.svg') no-repeat center;
+  background-size: contain;
+  display: block;
+}
+
+.mostrarsenha:checked  + .mostrarsenhalabel {
+  background: url('../../public/Assests/Ocultar-visualizacao-black.svg') no-repeat center;
+  background-size: contain;
+}

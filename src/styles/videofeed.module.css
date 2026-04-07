@@ -1,0 +1,214 @@
+.mainContent {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .7);
+  display: flex;
+  justify-content: center;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(32% - 32vw);
+  padding: 5rem;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  z-index: 100;
+}
+
+
+.mainContent::-webkit-scrollbar {
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  left: 1px;
+  top: 20px;
+  width: 5%;
+}
+
+.arrow img {
+  cursor: pointer;
+  filter: drop-shadow(0 0 2px white);
+}
+
+
+.feed {
+  padding: 0;
+  margin: 0;
+}
+
+.video {
+  list-style: none;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.videoContainer {
+  position: relative;
+  max-width: 100%;
+  height: 100vh;
+  aspect-ratio: 9 / 16;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  overflow: hidden;
+}
+
+.videoContainer video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.videoContainer ul {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s ease;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 10px;
+  margin-top: 100%;
+}
+
+.videoContainer:hover ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+.videoHeader {
+  display: flex;
+  align-items: center;
+  gap: 123px;
+}
+
+
+.videoContainer ul h1 a {
+  font-size: 25px;
+  margin: 0.2rem 0;
+  color: white;
+}
+
+.videoContainer ul span {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  color: #ccc;
+  margin-bottom: 0.3rem;
+  margin-left: 0.3rem;
+}
+
+
+.videoContainer ul li {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 0.3rem;
+  margin-left: 0.3rem;
+}
+
+.videoContainer ul p {
+  font-size: 16px;
+  color: #ccc;
+  margin-left: 0.3rem;
+}
+
+
+
+
+.videoinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.videoExcerpt {
+  font-size: 16px;
+  color: #ccc;
+}
+
+
+.details {
+padding: 0.9rem;
+}
+
+.coluns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.coluns button {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+}
+
+.coluns span {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+
+.coluns span:active {
+  width: 50%;
+   cursor: pointer;
+}
+
+.coluns p {
+  text-align: center;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.coluns p:hover {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #fff;
+}
+
+.likeButton {
+  transition: transform 0.2s;
+  opacity: 0.7;
+}
+
+.liked {
+  color: red;
+  transition: transform 0.5s;
+  transform: scale(1.2);
+}
+
+@media (max-width: 459px) {
+  .mainContent {
+    width: 100%;
+  }
+
+  .arrow {
+    width: 10%;
+    position: absolute;
+    }
+
+    .videoContainer {
+      width: 50%;
+    }
+}

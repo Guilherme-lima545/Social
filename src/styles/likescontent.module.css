@@ -1,0 +1,57 @@
+.container {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #0d0c0d;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 10%;
+}
+
+
+.details {
+  display: flex;
+  padding: 1rem;
+}
+
+
+
+.content {
+  list-style: none;
+  padding: 0.75rem;
+  margin: 1rem 0 0 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.userdetails {
+  display: flex;
+  gap: 10px;
+  align-content: center;
+  padding: 0.5rem;
+}
+
+
+.content h1 {
+  color: #fff;
+}
+
+.content img {
+  width: 100%;
+  height: 500px;
+}
+
+.content .avatarphoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 2rem;
+}
+
+.content span {
+  display: flex;
+  align-items: center;
+}

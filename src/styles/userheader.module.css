@@ -1,0 +1,17 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.likecount {
+  font-size: 1rem;
+  color: #666;
+}
+
+.likecount:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

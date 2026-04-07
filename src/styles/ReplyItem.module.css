@@ -1,0 +1,18 @@
+.respostaItem {
+  display: flex;
+  gap: 5px;
+}
+
+.respostaItem li {
+  display: flex;
+  flex-direction: row;
+  color: #aba5a5;
+  padding: 0.5rem;
+}
+
+.delete {
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+

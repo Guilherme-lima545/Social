@@ -1,0 +1,134 @@
+
+.photo {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+  background-color: black;
+}
+
+.containerphotoitem {
+  background-color: white;
+}
+
+.photo img {
+  height: 36rem;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.single.photo {
+  grid-template-columns: 1fr;
+  height: auto;
+  border-radius: 10px;
+}
+
+@keyframes scaleUp {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+
+
+.details {
+  color: #333;
+  padding: 0.9rem;
+}
+
+.single .details {
+  padding: 1rem 0px 0px 0px;
+}
+
+.img {
+  width: 500px;
+  grid-row: 1/4;
+}
+
+.single .img {
+  grid-row: 1;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+
+
+@media (max-width: 64rem) {
+  .photo {
+    max-width: 65%;
+    height: auto;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    grid-template-columns: minmax(20rem, 40rem);
+  }
+  .img {
+    grid-row: 1;
+  }
+}
+
+.author {
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author a:hover {
+  text-decoration: underline;
+}
+
+.visualizacoes::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 10px;
+  margin-right: .5rem;
+  background: url('../../public/Assests/visualizacao-black.svg') no-repeat center;
+}
+
+.title {
+  color: #333;
+}
+
+.attributes {
+  display: flex;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.attributes li {
+  margin-right: 2rem;
+  color: #333;
+}
+
+.attributes li::before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  margin-right: .5rem;
+  position: relative;
+  top: 3px;
+  width: 2px;
+  background: #333;
+  margin-top: 5px;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+@media (max-width:1022px) {
+  .photo {
+      max-width: 65%;
+    } 
+
+    .photo .img {
+      max-width: 100%;
+    }
+}

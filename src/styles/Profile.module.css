@@ -1,0 +1,28 @@
+.menu {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.menu li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color .2s;
+  color: #fff;
+}
+
+.menu li:hover {
+  border-color: #fff;
+}
+
+.menu .active {
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
+
+
+
+

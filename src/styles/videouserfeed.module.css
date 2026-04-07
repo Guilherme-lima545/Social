@@ -1,0 +1,12 @@
+.videofeed {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 5px;
+}
+
+.video {
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}

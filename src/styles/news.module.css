@@ -1,0 +1,37 @@
+.newsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0.35rem;
+}
+
+.news {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: #111013;
+}
+
+.newsContainer h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.newsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .newsContainer {
+    display: grid;
+   grid-template-columns: none;
+  }
+}

@@ -1,0 +1,105 @@
+.commentcontainer {
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.commentcontainer:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.comments {
+  width: 100%;
+  border-radius: 5%;
+  overflow-y: auto;
+  word-break: break-word;
+  padding: 0 1rem;
+}
+
+
+.comments b {
+  color: black;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.comments span {
+  color: #000;
+  word-break: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+.single.comments {
+  padding: 0px;
+}
+
+.comments li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 0.9rem;
+  line-height: 1.2;
+}
+
+
+.respostaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+  flex-basis: 100%;
+  width: 100%;
+  padding: 0.15rem;
+}
+
+ .resposta {
+  background: none;
+  border: none;
+  color: #0070f3;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.verRespostas {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.respostasList {
+  list-style: none;
+  padding-left: 16px;
+  border-left: 2px solid #eee;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.respostaItem {
+  display: flex;
+  gap: 7px;
+}
+
+
+.delete {
+  margin-left: auto;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+}
+
+.formReply {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+}

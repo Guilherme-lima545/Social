@@ -1,0 +1,31 @@
+
+.details {
+padding: 0.9rem;
+}
+
+.coluns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.coluns button {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.Deletemodal button {
+  background-color: azure;
+  border:  none;
+  cursor: pointer;
+}
+
+.Deletemodal button:hover {
+  color: red;
+}

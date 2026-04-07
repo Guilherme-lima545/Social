@@ -1,0 +1,150 @@
+
+.header {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background: #1a0f2e;
+  top: 0px;
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+}
+
+
+.logo {
+  padding: 0.5rem 0;
+  height: 120px;
+  object-fit: cover;
+}
+
+
+.login {
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+}
+
+.login::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 17px;
+  background: url('/Assests/usuario.svg') no-repeat center center;
+  margin-left: 0.5rem;
+  position: relative;
+  top: -1px;
+}
+
+.apoie {
+  color: #e5e7eb;
+}
+
+
+.mobileButton {
+  background: #eee;
+  border-radius: 0.2rem;
+  height: 40px;
+  width: 40px;
+  margin-left: 90%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.mobileButton::after {
+  content: '';
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  transition: 0.2s;
+}
+
+.mobileButton:focus,
+.mobileButton:hover,
+.mobileButtonActive {
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #fb1;
+  color: #fb1;
+  outline: none;
+}
+
+.mobileButtonActive::after {
+  transform: rotate(90deg);
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 8px currentColor, 0 -8px currentColor;
+}
+
+
+.navMobile {
+  display: block;
+  position: absolute;
+  top: 41px;
+  right: 0;
+  padding: 0.1rem;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 0.2rem;
+  transform: translateX(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.navMobileActive {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 100;
+}
+
+.navMobile a,
+.navMobile button {
+  display: flex;
+  align-items: center;
+  background: none;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem;
+  cursor: pointer;
+  gap: 10px;
+   color: #1a0f2e;
+}
+
+.navMobile button {
+  border-bottom: none;
+}
+
+.navMobile img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
+
+.navMobile a:hover svg > *,
+.navMobile button:hover svg > * {
+  fill: #fb1;
+}
+
+@media (max-width: 437px) {
+  .mobileButton {
+    margin-left: 87%;
+  }
+}

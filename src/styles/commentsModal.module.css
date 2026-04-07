@@ -1,0 +1,14 @@
+.modal {
+position: fixed;
+width: 100vw;
+height: 100%;
+top: 0;
+right: 0;
+background: rgba(0, 0, 0, .7);
+z-index: 1000;  
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+padding: 2rem calc(4rem + 15px) 2rem 4rem;
+}
