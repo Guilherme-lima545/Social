@@ -56,7 +56,6 @@ export default function PhotoGetItem({ id, single }: { id: string } & { single?:
 
   
   function handleDeletePhoto(id: number) {
-    console.log('removido:', id);
     redirect('/')
   }
 

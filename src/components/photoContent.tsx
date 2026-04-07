@@ -61,7 +61,6 @@ export default function PhotoContent({
 
 
 function handleDeletePhoto(id: number) {
-  console.log('removido:', id);
   redirect('/')
 }
 

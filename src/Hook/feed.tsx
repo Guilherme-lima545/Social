@@ -34,7 +34,6 @@ export function useFeed({ total = 6, user, username }: UseFeedParams) {
     const response = await PHOTOGET({ page, total, user }) as Photo[] | ApiError;
 
     if (!Array.isArray(response)) {
-      console.log(response);
       setError(response.message);
       setInfinite(false);
       return;
@@ -70,14 +69,11 @@ export function useFeed({ total = 6, user, username }: UseFeedParams) {
    
 
         if (!Array.isArray(newVideos)) {
-        console.log('O retorno não é um array:', newVideos);
         setInfinite(false);
         return;
       }
 
        const filtered = username ? newVideos.filter((v) => v.author === username) : newVideos;
-       console.log('username:', username);
-       console.log('filtered:', filtered);
 
       if (filtered.length === 0) {
         setInfinite(false);

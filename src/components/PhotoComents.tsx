@@ -77,9 +77,7 @@ export default function PhotoComents({
     if (res.ok) {
       updateComments({ deleteId: commentId });
       alert('Comentário deletado com sucesso!');
-    } else {
-      console.log('Erro ao deletar', res.data);
-    }
+    } 
   }
 
   const rootComments = comentarios.filter(

@@ -54,8 +54,6 @@ export default function ComentsForm({
       formData,
     );
 
-    console.log('resposta da API:', coment.data);
-
 
     if (coment.ok) {
       setComentario('');
@@ -64,7 +62,6 @@ export default function ComentsForm({
       if (refreshComments) {
         refreshComments();
       }
-      console.log('enviado', coment.data);
     } else {
       setError('Erro ao atualizar comentários');
     }

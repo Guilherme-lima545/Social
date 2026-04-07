@@ -35,7 +35,6 @@ export default function news() {
     fetchNews();
   }, []);
 
-  console.log(news);
 
   return (
   <>

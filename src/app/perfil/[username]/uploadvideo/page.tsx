@@ -6,6 +6,7 @@ import styles from '@/styles/videoupload.module.css';
 import { redirect } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { compressVideo } from '@/utils/ComprimirVideo';
+import { ErrorMessage } from '@/Helper/Error';
 
 export default function VIDEOUPLOAD() {
   const [titulo, settitulo] = useState('');
@@ -15,6 +16,7 @@ export default function VIDEOUPLOAD() {
   const [confirmation, setConfirmation] = useState('');
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('')
 
 
   useEffect(() => {
@@ -33,18 +35,16 @@ export default function VIDEOUPLOAD() {
   event.preventDefault();
 
   if (!video) {
-    console.log("No video selected");
+    setError("No video selected");
     return;
   }
 
 
   let videofinal = video;
 
-  console.log("Tamanho original:", video.size / 1024 / 1024, "MB");
 
 
   if (video.size > 20 * 1024 * 1024) {
-    console.log("Comprimindo vídeo...");
 
   setLoading(true);
   setProgress(0);
@@ -56,11 +56,9 @@ export default function VIDEOUPLOAD() {
 
   setLoading(false);
   } else {
-    console.log("Vídeo pequeno → enviando direto sem compressão");
     setConfirmation('Video Enviado')
   }
 
-  console.log("Tamanho final:", videofinal.size / 1024 / 1024, "MB");
 
   const formData = new FormData();
   formData.append("titulo", titulo);
@@ -68,8 +66,6 @@ export default function VIDEOUPLOAD() {
   formData.append("video", videofinal);
 
   const response = await VIDEOPOST(formData);
-
-  console.log(response.status);
 
 
 
@@ -103,6 +99,7 @@ export default function VIDEOUPLOAD() {
           onChange={(e) => setVideo(e.target.files?.[0] || null)}
         />
          {confirmation} {loading ? progress : null}%
+         {error ? <ErrorMessage error={error}></ErrorMessage> : null}
         <Button> Enviar </Button>
       </form>
       <div>

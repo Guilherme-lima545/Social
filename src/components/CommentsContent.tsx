@@ -81,12 +81,9 @@ export default function Commmentscontent({
       if (res.ok) {
         updateComments({ deleteId: commentId });
         alert('Comentário deletado com sucesso!');
-      } else {
-        console.log('Erro ao deletar', res.data);
-      }
+      } 
     }
 
-  console.log(comentarios);
 
   const rootComments = comentarios.filter(
     (c) => !c.comment_parent || Number(c.comment_parent) === 0,

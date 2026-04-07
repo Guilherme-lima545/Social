@@ -117,7 +117,6 @@ async function uploadCloudinary(file: File) {
     }
   );
 
-  console.log(response.status)
 
   const json = await response.json();
   
@@ -209,7 +208,6 @@ export async function PHOTO_DELETE({ id }: { id: number }) {
 
   const data = await response.json();
 
-  console.log(response.status)
 
   revalidatePath(`/photo/${id}`)
 
@@ -241,7 +239,6 @@ export async function LOGIN(formData: FormData) {
 
 
   if (response.ok) {
-    console.log('Usuário logado');
     const token = data.token;
     await Setcookies('token', token);
     revalidatePath('/login');
@@ -295,13 +292,6 @@ export async function USER_GET(username: string) {
     },
   );
 
-  if (!response.ok) {
-    console.log(
-      'Erro ao buscar dados do usuário',
-      response.status,
-      response.statusText,
-    );
-  }
 
   return (await response.json()) as userData;
 }
@@ -315,7 +305,6 @@ export async function UPLOADAVATAR(formdata: FormData) {
 
   const token = (await cookies()).get('token')?.value;
   if (!token) {
-    console.log('Token inexistente');
     return;
   }
 
@@ -334,16 +323,8 @@ export async function UPLOADAVATAR(formdata: FormData) {
     body: bodydata,
   });
 
-  if (!wpRes.ok) {
-    console.log(
-      'Erro ao salvar avatar no WordPress',
-      wpRes.status,
-      wpRes.statusText,
-    );
-    return;
-  }
 
-  console.log('Avatar atualizado com sucesso');
+
 
   return { secure_url: avatarURL };
 }
@@ -391,11 +372,8 @@ export default async function UPLOADPHOTO(formData: FormData) {
   const dados = await response.json();
 
   if (response.ok) {
-    console.log(dados, 'Foto enviada com sucesso');
     redirect('/');
-  } else {
-    console.log('Erro ao enviar foto', response.status, response.statusText);
-  }
+  } 
 
   return dados;
 }
@@ -427,7 +405,6 @@ export async function VIDEOGET(): Promise<Video[]> {
   }
 
   const data = (await response.json()) as Video[];
-  console.log(data)
 
   return data;
 }
@@ -462,11 +439,7 @@ export async function VIDEOPOST(formData: FormData) {
 
   const data = await response.json();
 
-  if (response.ok) {
-    console.log(data, 'Vídeo enviado com sucesso');
-  } else {
-    console.log('Erro ao enviar vídeo', data);
-  }
+
 
   return data;
 }
@@ -509,7 +482,6 @@ export async function COMMENT_POST({id}: {id: number}, formData: FormData) {
 
   const data = await response.json();
 
-  console.log(data, response.status)
   
   return {
     ok: response.ok,
@@ -528,9 +500,6 @@ export async function COMMENT_GET({id}: {id: number}) {
     },
   });
 
-  if(!response.ok) {
-    console.log(error)
-  }
 
   const data = await response.json();
   return data;
@@ -581,9 +550,7 @@ export async function LIKE_POST({id}: {id: number}) {
     return { error: "Voce  precisa estar logado para curtir" };
   }
 
-  if(!response.ok) {
-    console.log(response.status)
-  }
+
  
   const data = await response.json();
 
@@ -633,7 +600,6 @@ export async function PROFILE_LIKE(username: string) {
   );
 
   const data = await response.json();
-  console.log('PROFILE_LIKE response:', data, 'status:', response.status);
   return data;
 }
 
@@ -719,7 +685,6 @@ export async function DELETE_VIDEO({ id }: { id: number }) {
 
   const data = await response.json();
 
-  console.log(response.status)
 
   revalidatePath(`/`)
 

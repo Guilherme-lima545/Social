@@ -205,7 +205,6 @@ function handleDeleteVideo(id: number) {
 
   if (loading) return <Loading />;
 
-  console.log('USER', user);
 
   return (
     <>

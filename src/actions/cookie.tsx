@@ -22,6 +22,5 @@ export async function Getcookies(key: string) {
 
 export  async function REMOVECOOKIE() {
   (await cookies()).delete('token');
-  console.log('Token removido')
   redirect('/login');
 }

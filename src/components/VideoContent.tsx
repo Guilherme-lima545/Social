@@ -71,8 +71,7 @@ export default function VideoContent({
   }
 }
 
-function handleDeleteVideo(id: number) {
-  console.log('removido:', id);
+function handleDeleteVideo() {
   redirect('/')
 }
 
