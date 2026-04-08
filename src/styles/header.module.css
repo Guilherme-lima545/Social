@@ -143,8 +143,15 @@
   fill: #fb1;
 }
 
-@media (max-width: 437px) {
+
+
+
+@media (max-width: 474px) {
   .mobileButton {
     margin-left: 87%;
+  }
+
+  .navMobile {
+    right: 5%;
   }
 }

@@ -30,8 +30,9 @@
 }
 
 @media (max-width: 800px) {
-  .newsContainer {
-    display: grid;
-   grid-template-columns: none;
+  .news {
+    display: flex;
+   flex-direction: column;
+   align-items: center;
   }
 }
