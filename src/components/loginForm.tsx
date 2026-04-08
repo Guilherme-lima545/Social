@@ -83,10 +83,10 @@ export default function LoginForm() {
         Putz! Esqueci minha Senha
       </Link>
       <div className={styles.cadastro}>
-        <h2 className={styles.subtitle}> Cadrastre-se Aqui.</h2>
+        <h2 className={styles.subtitle}> Cadastre - se Aqui.</h2>
         <p> Novo por aqui? </p>
-        <Link href="/login/cadrastro" className={stylesbt.button}>
-          Cadrastro
+        <Link href="/login/cadastro" className={stylesbt.button}>
+          Cadastro
         </Link>
       </div>
     </section>
