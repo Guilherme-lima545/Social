@@ -19,7 +19,6 @@
  
 ## 📖 Sobre
  
-Descreva em 2–3 frases o contexto do projeto:
 - Mostra quem visita seu perfil, mostra noticias, e da para baixar os videos e as fotos.
 - Foi feito para todos os publicos.
 - Melhorias que eu imaginava no instagram podiam ser aplicadas nesse site
