@@ -3,7 +3,6 @@
  
 > Ja pensou em uma rede social onde mistura noticias, upload de fotos e videos, e ainda estastiticas sobre quem visitou seu perfil? O projeto Social mistura tudo isso, ele é uma rede social com uma mistura de instagram e com o X.
  
-![preview](https://via.placeholder.com/900x450?text=Screenshot+do+projeto+aqui)
  
 ---
  
