@@ -44,7 +44,7 @@ export default function CreateLogin() {
         action={CREATELOGIN}
         onSubmit={handleSubmit}
       >
-        <h1 className="title"> Cadrastre-se </h1>
+        <h1 className="title"> Cadastre-se </h1>
         <Input
           label="Usuario"
           type="text"
